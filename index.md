@@ -1,1 +1,1 @@
-- [NFT](./nft-notes.md)
+- [NFT](./nft)
