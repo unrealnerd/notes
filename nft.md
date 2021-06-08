@@ -1,58 +1,52 @@
 # NFT Notes
+---
+### Learn
 
-## ----------------
-
-### existing code walkthorugh
-
-- wallet address is mapped to email id & username
-- update profie using walletaddress
-- profille pic stored in s3
-- web3service used for accessing NFT
-- get all tokens using limit froma nd to params to show all tokens in the UI
-- token hash json file ? ipfs? token meta data in a json file in cdn?
-- whats CDN URL? ENV variable access?
+- [Solidity by example](https://solidity-by-example.org/)
+- [Solidity docs](https://docs.soliditylang.org/)
 - [adding BSC to MetaMask](https://academy.binance.com/en/articles/connecting-metamask-to-binance-smart-chain)
 - [connecting metamask to bsc](https://dapp-world.com/blogs/01/how-to-connect-metamask-to-binance-smart-chainbsc--1618137142422)
 - [BSC scan](https://testnet.bscscan.com/address/0xa8dC4fB8DB32A09499cA53dD75F7B6a74F49c05e#events)
 - [BNB test network add token](https://testnet.binance.org/faucet-smart)
-- [Wazirx NFT web ui](http://wazirxnftdevfrontend-env.eba-k5ubiwwu.ap-southeast-1.elasticbeanstalk.com/nft/50)
+- [Wazirx NFT web ui](http://nft.wazirx.com/)
 - [go client for ethereum using docker](https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-windows)
 - [standards doc](https://docs.openzeppelin.com/contracts/2.x/tokens#ERC721)
 - [to generate contract.sol](https://wizard.openzeppelin.com/)
 - [Reentrancy](https://blog.openzeppelin.com/reentrancy-after-istanbul/)
+  - re-entering the contract when in invariant state
+  - balance > amout --> transfer --> (re-enters) --> balance = balance - amt; actual amount is trasfered but the state of balance is not updated when re-entering.
+  - one way to avoid is setting balance before making the actual call to transfer
+  - second way is [nonReentrant modifier](https://docs.openzeppelin.com/contracts/2.x/api/utils#ReentrancyGuard)
 - to compile solidity contract
 
-```bash
-    docker run -v ${pwd}:/sources ethereum/solc:stable -o /sources/contracts/output --abi --bin --overwrite /sources/contracts/WazirXNFT.sol --allow-paths /sources/node_modules
-    
-    docker run -v ${pwd}:/sources -it ethereum/client-go:alltools-stable
-    
-    abigen --abi=/sources/contracts/output/WazirXNFT.abi --pkg=connectors --out=/sources/contracts/output/WazirXNFT.go --bin /sources/contracts/output/WazirXNFT.bin
-    
-    go get
-```
+    ```bash
+        docker run -v ${pwd}:/sources ethereum/solc:stable -o /sources/contracts/output --abi --bin --overwrite /sources/contracts/WazirXNFT.sol --allow-paths /sources/node_modules
+        
+        docker run -v ${pwd}:/sources -it ethereum/client-go:alltools-stable
+        
+        abigen --abi=/sources/contracts/output/WazirXNFT.abi --pkg=connectors --out=/sources/contracts/output/WazirXNFT.go --bin /sources/contracts/output/WazirXNFT.bin
+        
+        go get
+    ```
 
-https://testnet.bscscan.com/address/0x6C2B386d71d6Da1ec65375601986EfaF5Ad0D2e2#events
-https://remix.ethereum.org/
-http://wazirxnftdevfrontend-env.eba-k5ubiwwu.ap-southeast-1.elasticbeanstalk.com/
-
-setting up wsl
-
-```bash
-sudo apt install golang-go
-sudo apt install gccgo-go
-```
-
-`.\geth.exe --ropsten --syncmode "light"` 
-Public address of the key:   0x392F0E188e9D238cC2c3Ca8299eb431a5e3E1a43
-Path of the secret key file: C:\Users\arjun_shetty\AppData\Local\Ethereum\keystore\UTC--2021-05-06T14-38-58.853541300Z--392f0e188e9d238cc2c3ca8299eb431a5e3e1a43
-
-### Foundation app contracts
+### Foundation app analysis
 
 - [Foundation martket contract](https://etherscan.io/address/0xcDA72070E455bb31C7690a170224Ce43623d0B6f#code)
 - [Foundation token contract](https://etherscan.io/address/0x3B3ee1931Dc30C1957379FAc9aba94D1C48a5405#code)
 - [Martket place code from proxy](https://etherscan.io/address/0x52e75b420e70ea24bbd0ede2e71800a913cd06ee#code)
 
 - `FoundationTreasuryNode` treasury contract address set on intilaize and expose get method
-- `FNDNFTMarket` - initalizes treasuary, auction and resertvation
-- 
+- `FNDNFTMarket` - initalizes treasuary, auction and reservation
+- `NFTMarketCreators` - gets creators address of the nft
+- `NFTMarketCore` - gets the current owner of the nft
+- `NFTMarketReserveAuction`
+  - `createReserveAuction` creates a new auction for a token. internally increments auctionid and use it as pk
+  - An NFT on auction is on escrow until finialized or cancelled
+  - `_duration` / default 24 hours duration for which the NFT is on auction
+  - `_minPercentIncrementInBasisPoints` and `_duration` is set in `ReserveAuctionConfig`
+  - `_minPercentIncrementInBasisPoints` is the minimum percent by which the bid amount should be greater.
+  - durataion must be greater than extenstion duration(15mins)
+  - `reservePrice` minimum selling price.
+  - `updateReserveAuction` seller is allowed to change reserveproce in case no bidders
+  - `cancelReserveAuction` when seller cancels, release from escrow
+  - `placeBid` 
