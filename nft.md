@@ -12,6 +12,7 @@
 - [go client for ethereum using docker](https://geth.ethereum.org/docs/install-and-build/installing-geth#install-on-windows)
 - [standards doc](https://docs.openzeppelin.com/contracts/2.x/tokens#ERC721)
 - [to generate contract.sol](https://wizard.openzeppelin.com/)
+- [calling function from another contract](https://www.youtube.com/watch?v=YxU87o4U5iw)
 - [Reentrancy](https://blog.openzeppelin.com/reentrancy-after-istanbul/)
   - re-entering the contract when in invariant state
   - balance > amout --> transfer --> (re-enters) --> balance = balance - amt; actual amount is trasfered but the state of balance is not updated when re-entering.
@@ -28,6 +29,29 @@
         
         go get
     ```
+
+- `storage` vs `memory` - storage(harddisk) is default for state variables. memory(ram) is deafault for function arguments cleared between the calls
+- 1 eth = 10^18 wei
+- when you get this error `Error: Artifacts are from different compiler runs`
+  - delete `.openzeppelin` and `build` folder
+  - `npx truffle migrate --compile-all`
+- connecting remix IDE to local `remixd -s /c/code/NFTMarketplace --remix-ide https://remix.ethereum.org/#optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.4+commit.c7e474f2.js`
+- install ganache GUI on local
+
+```bash
+npm install --global windows-build-tools
+git clone https://github.com/trufflesuite/ganache.git
+npm install
+npm start
+```
+using docker
+
+```
+docker rm ganache-gui
+docker run -d -p "7545:7545" --name ganache-gui ganache-gui 
+
+
+```
 
 ### Foundation app analysis
 
@@ -51,3 +75,45 @@
   - `updateReserveAuction` seller is allowed to change reserveproce in case no bidders
   - `cancelReserveAuction` when seller cancels, release from escrow
   - `placeBid` 
+
+### Jots
+```
+my account 0xF13462D8916996C4672CF05c0d0C515D61050B20
+created token
+approve token on wazirnft for escrow contract
+approve auction market on escrow contract
+note (bool is True not true)
+place on auction
+place bid form different account
+```
+
+WRX TOKEN : `0xe9b7fe48C641278F451230e4824fc52eBe84DE65`
+WRX NFT: `0xd41F8c0fe77f7d2c68a3f5e501eB5B8DE76A195F`
+Escrow: `0x5433378C2366CFDFd9DEF519aFd2a06d27A46e63`
+
+ACCOUNT 1: `0xF13462D8916996C4672CF05c0d0C515D61050B20`
+ACCOUNT 2: `0x4DEC5475389bA78895aD0e452b95664277B60337`
+ACCOUNT 3: `0x801CA501cb248F6B4ECc8Df1e222443b198b4910`
+ACCOUNT 4: `0xc39BD7496631F3FaD5a85AeA1F3D5798BB3b6393`
+
+Initialize Auction Market
+nft : `0xd41F8c0fe77f7d2c68a3f5e501eB5B8DE76A195F`
+escrow: `0x5433378C2366CFDFd9DEF519aFd2a06d27A46e63`
+bep20: `0xe9b7fe48C641278F451230e4824fc52eBe84DE65`
+auctionDuration: `600`
+auctionExtension: `300`
+minBidIncrement: `1000000000`
+decimals: `8`
+serviceOwner: `0xc39BD7496631F3FaD5a85AeA1F3D5798BB3b6393`
+serviceCommission: `500000000`
+
+setContractApproval for AuctionMarket on Escrow
+apprve escroe on tokenID in nft contract
+create auction
+approve auction to spend on accout 2
+place bid
+approve auction to spend on accout 3
+place bid
+
+
+npx truffle migrate --compile-all --network development
