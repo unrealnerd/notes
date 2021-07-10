@@ -13,11 +13,33 @@
 
 - setting proxy for .net core app `netsh winhttp set proxy 127.0.0.1:8888` to reset `netsh winhttp reset proxy`
 - constructor injections for a class which has constructor paramters
+
 ```cs
   services.AddScoped<IDataContext<Product>>(_ =>
                 new DataContext<Product>("products", _.GetRequiredService<IOptions<InventoryOptions>>())
             );
 ``` 
+- `IOptionsSnaphot` Options snapshots are designed for use with transient and scoped dependencies and `IOptionsMonitor` with singleton service
+
+### propagate the header from client to another api called from the server
+
+```cs
+//Startup.cs
+services.AddHeaderPropagation(options => options.Headers.Add("Cookie"));
+services.AddHttpClient("Service", options =>
+{
+    options.BaseAddress = new Uri(@"https://www.asfasddfsdafas.com");
+}
+).AddHeaderPropagation();
+```
+
+Using header propagation to pass on `cookie` did not work since it was passing on comma seperate cookie instead of semicolon. ended adding cookie header manually as below
+
+```cs
+var cookieString = _httpContextAccessor.HttpContext.Request.Cookies.Aggregate("", (key, kv) => key + kv.Key + "=" + kv.Value + "; ");
+request.Headers.Add("Cookie", cookieString);
+```
+
 - to pick configuration from environment variable set `"GitlabService__GitlabBaseUrl":"https://gitlab.com/api/v4",` is equilent to `"Gitlabservice:GitlabBaseUrl"`. Notice the doudle underscore
 - `.ConfigureAwait(False)` this tells the Task that it can resume itself on any thread that is available instead of waiting for the thread that originally created it. This will speed up responses and avoid many deadlocks.[...](https://www.skylinetechnologies.com/Blog/Skyline-Blog/December_2018/async-await-configureawait) ** dotnet core does have this method **
 - consuming rest api
@@ -374,12 +396,21 @@ query someQuery($inResult: Boolean) {
 - to delete a certificate `./keytool -delete -alias server -keystore ../jre/lib/security/file.jks`
 - to list all certs `./keytool -list -v -keystore ../jre/lib/security/file.jks`
 
+### installting a localhost certificate using git openssl
+
+- goto `C:\Program Files\Git\usr\bin`
+- generate key `.\openssl.exe genrsa -des3 -out server.key 1024`
+- create csr `.\openssl.exe req -new -key server.key -out server.csr`
+- create cert file `.\openssl.exe x509 -req -days 365 -in server.csr -signkey server.key -out server.crt`
+- install as trusted cert
 
 ### Fiddler
 
 - Failed to negotiate HTTPS connection with server.fiddler.network.https
   this error means fiddler is not enabled to handle version of TLS
   tools->options-->https-->protocols link set `<client>;ssl3;tls1.0;tls1.1;tls1.2`
+- setting proxy for .net core app `netsh winhttp set proxy 127.0.0.1:8888` to reset `netsh winhttp reset proxy`
+
 
 ### Windows
 
@@ -399,5 +430,37 @@ query someQuery($inResult: Boolean) {
 
 ###  Spring
 
+
 - what is [spring framework](https://www.marcobehler.com/guides/spring-framework)
 - @Component is kind of marker that will be considered in DI container using @ComponentScan
+
+### integrating fiddler proxy on dev environment in dotnet core
+
+
+```cs
+services.AddHttpClient("NotificationService", options =>
+    {
+        options.BaseAddress = new Uri(@"https://www.asdfsadfswaddfasdf.com");
+    }
+).AddHeaderPropagation()
+#if ENABLE_FIDDLER_DEBUG_PROXY
+.ConfigurePrimaryHttpMessageHandler(() =>
+{
+    return new HttpClientHandler
+    {
+        Proxy = new WebProxy("http://localhost.dell.com:8888"),
+        UseProxy = true
+    };
+#endif
+```
+
+If using vscode add args to build task
+`"/p:DefineConstants=\"ENABLE_FIDDLER_DEBUG_PROXY\"",`
+
+### Installing dev certificate in dotnet core
+
+```sh
+dotnet dev-certs https --clean
+dotnet dev-certs https
+dotnet dev-certs https --trust
+```

@@ -36,6 +36,22 @@
   - delete `.openzeppelin` and `build` folder
   - `npx truffle migrate --compile-all`
 - connecting remix IDE to local `remixd -s /c/code/NFTMarketplace --remix-ide https://remix.ethereum.org/#optimize=false&runs=200&evmVersion=null&version=soljson-v0.8.4+commit.c7e474f2.js`
+- step by step instructions to use [truffle](https://forum.openzeppelin.com/t/openzeppelin-upgrades-step-by-step-tutorial-for-truffle/3579)
+- to skip migrations in localhost
+
+```truffle-config.js
+networks: {
+    skipMigrations: {
+      development: {
+        host: "127.0.0.1",     // Localhost (default: none)
+        port: 8545,            // Standard BSC port (default: none)
+        network_id: "*",       // Any network (default: none)
+      }
+    },
+    testnet: { 
+    ...
+```
+
 - install ganache GUI on local
 
 ```bash
@@ -44,14 +60,17 @@ git clone https://github.com/trufflesuite/ganache.git
 npm install
 npm start
 ```
-using docker
 
-```
+- using docker
+
+```bash
 docker rm ganache-gui
 docker run -d -p "7545:7545" --name ganache-gui ganache-gui 
-
-
 ```
+
+### The graph
+
+- [in depth](https://thegraph.com/blog/the-graph-network-in-depth-part-1)
 
 ### Foundation app analysis
 
@@ -108,7 +127,7 @@ serviceOwner: `0xc39BD7496631F3FaD5a85AeA1F3D5798BB3b6393`
 serviceCommission: `500000000`
 
 setContractApproval for AuctionMarket on Escrow
-apprve escroe on tokenID in nft contract
+approve escrow on tokenID in nft contract
 create auction
 approve auction to spend on accout 2
 place bid
@@ -117,3 +136,4 @@ place bid
 
 
 npx truffle migrate --compile-all --network development
+npx truffle test --skip-dry-run
