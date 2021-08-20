@@ -13,6 +13,8 @@
 - [standards doc](https://docs.openzeppelin.com/contracts/2.x/tokens#ERC721)
 - [to generate contract.sol](https://wizard.openzeppelin.com/)
 - [calling function from another contract](https://www.youtube.com/watch?v=YxU87o4U5iw)
+- [calldata storage](https://stackoverflow.com/a/33839164/713149)
+- [modifiers](https://medium.com/coinmonks/solidity-tutorial-all-about-modifiers-a86cf81c14cb)
 - [Reentrancy](https://blog.openzeppelin.com/reentrancy-after-istanbul/)
   - re-entering the contract when in invariant state
   - balance > amout --> transfer --> (re-enters) --> balance = balance - amt; actual amount is trasfered but the state of balance is not updated when re-entering.
@@ -137,3 +139,16 @@ place bid
 
 npx truffle migrate --compile-all --network development
 npx truffle test --skip-dry-run
+
+###  truffle
+
+- get accounts in truffle console `let accounts = await web3.eth.getAccounts()`
+- to run all the migration again `truffle migrate --reset`
+
+### ERC1155
+
+- what happens when one fails in a batch transaction?
+- `safeTransferFrom` takes care that the receiver has agreed to collect erc115. this protects from transferring to idle accounts
+  for a contract to agree, inherit `ERC1155Holder`
+  there is also erc1155 received function as triggers
+- 
