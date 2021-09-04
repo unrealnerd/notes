@@ -128,3 +128,8 @@ fi
 
 - `while git stash drop 'stash@{5}'; do true; done` keeps top 5 stashes and clears the rest
 - `git stash clear` to clear all the stashes
+
+## Credential manager
+
+- when having multiple account set the credential config using this command
+`git config credential.username unrealnerd`
