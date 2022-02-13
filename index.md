@@ -6,3 +6,4 @@
 - [go lang](./go)
 - [Machine Learning](./ml)
 - [Git commands](./git)
+- [Web3](./web3)
