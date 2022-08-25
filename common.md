@@ -464,3 +464,12 @@ dotnet dev-certs https --clean
 dotnet dev-certs https
 dotnet dev-certs https --trust
 ```
+
+### MAC
+
+- ** setting env vairable **
+  ```
+  vi /etc/zshrc
+  //append the export commands to set env variables
+  export PATH="<new variable>:$PATH"
+  ```
