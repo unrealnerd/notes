@@ -471,5 +471,5 @@ dotnet dev-certs https --trust
   ```
   vi /etc/zshrc
   //append the export commands to set env variables
-  export PATH="<new variable>:$PATH"
+  export PATH="<new value>:$PATH"
   ```
