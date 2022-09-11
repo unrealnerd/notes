@@ -47,3 +47,4 @@
     - [whitepaper](https://hackmd.io/C-DvwDSfSxuh-Gd4WKE_ig)
     - [Is liquidity good deal](https://pintail.medium.com/uniswap-a-good-deal-for-liquidity-providers-104c0b6816f2)
 - 10 k project image generator [Hashlips](https://github.com/HashLips)
+- [MEV protection via mistx.io](https://medium.com/alchemistcoin/what-every-trader-should-know-about-mev-the-mev-crisis-explained-fdf19f6a75bd)
