@@ -474,7 +474,7 @@ dotnet dev-certs https --trust
   export PATH="<new value>:$PATH"
   ```
 
-### Privacy Pass
+### Privacy Pass Architecture
 
 - consists 2 protocols `issuance` and `redemption`
 - 
