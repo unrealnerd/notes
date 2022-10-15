@@ -477,4 +477,5 @@ dotnet dev-certs https --trust
 ### Privacy Pass Architecture
 
 - consists 2 protocols `issuance` and `redemption`
-- 
+- Reference
+  - [IETF](https://www.ietf.org/archive/id/draft-ietf-privacypass-architecture-03.html)
