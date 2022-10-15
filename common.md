@@ -477,7 +477,7 @@ dotnet dev-certs https --trust
 ### Privacy Pass Architecture
 
 - Consists 2 protocols `issuance` and `redemption`
-- Redemption protocol - server/origin challenge/prompts the token from the client. Client may respond with the previously obtained token based on the token attributes (validity, same origin , etc.)
+- Redemption protocol - server/origin challenge/prompts for the token from the client. Client may respond with the previously obtained token based on the token attributes (validity, same origin , etc.)
 
 ```
       Origin          Client        Attester          Issuer
