@@ -473,3 +473,8 @@ dotnet dev-certs https --trust
   //append the export commands to set env variables
   export PATH="<new value>:$PATH"
   ```
+
+### Privacy Pass
+
+- consists 2 protocols `issuance` and `redemption`
+- 
