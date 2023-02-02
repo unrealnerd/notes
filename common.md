@@ -495,3 +495,20 @@ dotnet dev-certs https --trust
 
 - References
   - [IETF doc](https://www.ietf.org/archive/id/draft-ietf-privacypass-architecture-03.html)
+
+
+### AWS
+#### READ REPLICA
+- replication process uses WAL which logs transactions on master and then replay those on the read replica
+- relpica lag can be caused coz of
+  - slow queries being run on read replica will pause the replication
+  - 
+- VACCUM in postgres basically cleans data that update and delete queries maintain versions of so that the read queries are served with the data that it asked at the time it initiated.
+- On Aurora since they share the same storage as the master/source DB relica lag is almost in single digit ms.
+
+- references
+  - [gitlab issue](https://gitlab.com/gitlab-com/gl-infra/reliability/-/issues/7735)
+  - [AutoVaccum pgsl docs](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html)
+  - [AWS read replica best practices](https://aws.amazon.com/blogs/database/best-practices-for-amazon-rds-postgresql-replication/)
+
+
