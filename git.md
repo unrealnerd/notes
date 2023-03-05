@@ -24,6 +24,7 @@
 |when gitignore is not working as expected|`git rm -r --cached .`
 |generating ssh|`ssh-keygen -t rsa -b 4096 -C "arjunshetty2020@gmail.com"`<br/> copy pub key to github from `C:\Users\arjun_shetty\.ssh\id_rsa.pub`
 |Deleting a remote branch|git push origin --delete test
+|get one file form a stash|git checkout stash@{0} README.md
 
 ## hold multiple ssh keys
 

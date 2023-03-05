@@ -498,6 +498,13 @@ dotnet dev-certs https --trust
 
 
 ### AWS
+
+- instance type ondemand,savings plan( for compute based on previous usage, after committed usage exceeds on-demand costs take charge for the exceeded),spot (jobs which can be interuppted. since aws can witdraw these instances anytime)
+- ec2 autoscaling: dynamic- based on demand, predective - based on predicted demand
+- internet gateway & private gateway to enter a VPC
+- SSM Agent-  is Amazon software that runs on ec2 instances to help manage resouces
+
+
 #### READ REPLICA
 - replication process uses WAL which logs transactions on master and then replay those on the read replica
 - relpica lag can be caused coz of
@@ -505,10 +512,34 @@ dotnet dev-certs https --trust
   - 
 - VACCUM in postgres basically cleans data that update and delete queries maintain versions of so that the read queries are served with the data that it asked at the time it initiated.
 - On Aurora since they share the same storage as the master/source DB relica lag is almost in single digit ms.
+- each ACU is approx 2gb and corresponding cpu and networking
 
 - references
   - [gitlab issue](https://gitlab.com/gitlab-com/gl-infra/reliability/-/issues/7735)
   - [AutoVaccum pgsl docs](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html)
   - [AWS read replica best practices](https://aws.amazon.com/blogs/database/best-practices-for-amazon-rds-postgresql-replication/)
 
+### Nodejs
 
+- code blocks irrespective of async await unless for fetch, fiel reads etc. [reference](https://stackoverflow.com/questions/46004290/will-async-await-block-a-thread-node-js)
+- *Node.js is fast when the work associated with each client at any given time is "small".* <br/> *Remember, the Event Loop should orchestrate client requests, not fulfill them itself.*<br/> [Dont block the event loop](https://nodejs.org/en/docs/guides/dont-block-the-event-loop/)
+- settimeout is something that lives outside of v8. Its a web api provided by browser.
+- webapi results or callback is sent to task queue once finshed running
+- eventloop if stack empty pick a task from task queue or render queue. render queue is given higher priority
+- setTimeOut not guaranteed time of exceution but minimum
+- reference - [What the heck is eventloop](https://www.youtube.com/watch?v=8aGhZQkoFbQ&t=940s)
+- complete guide for worker thread and event looping blocking explained [here](https://www.digitalocean.com/community/tutorials/how-to-use-multithreading-in-node-js)react
+
+### React
+
+- creating ref for dynamically created component
+  ```
+  //create refs array
+  const refs = useRef([]);
+
+  //add this ref property to element
+  <input type="text" ref={(ref) => refs.current.push(ref)}>
+
+  //referencing this ref
+  ref1 = refs.current[0];
+  ```
