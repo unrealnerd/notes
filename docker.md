@@ -59,4 +59,4 @@
 - " $'\r': command not found" make sure to change CRLF to LF on windows any IDE and then build docker image 
 - "Waiting for SSH to be available" when stuck at this line I had to goto network adapters and uncheck wifi from the bridge then goto hyperv and set the virtual switch to external
 - network_mode: "host" using this yml will let us use "localhost" address as the docker container instance instead of host machine 
-- prune cache images from builder ``
+- prune cache images from builder `docker builder prune`
