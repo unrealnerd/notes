@@ -26,6 +26,7 @@
 |Deleting a remote branch|git push origin --delete test
 |get one file form a stash|git checkout stash@{0} README.md
 |reset to specific branch in origin|`git reset --hard origin/main`
+||
 
 ## hold multiple ssh keys
 
