@@ -503,6 +503,8 @@ dotnet dev-certs https --trust
 - ec2 autoscaling: dynamic- based on demand, predective - based on predicted demand
 - internet gateway & private gateway to enter a VPC
 - SSM Agent-  is Amazon software that runs on ec2 instances to help manage resouces
+- Install docker in EC2
+`sudo amazon-linux-extras install docker`
 
 
 #### READ REPLICA
