@@ -139,7 +139,7 @@ fi
 
 
 ## ssh setup on new server or git
-```
+```sh
 sudo yum install git
 ssh-keygen -t rsa -C "abc@xyz.com
 cat <pub key>
