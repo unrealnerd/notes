@@ -145,5 +145,5 @@ sudo yum install git
 ssh-keygen -t rsa -C "abc@xyz.com
 cat <pub key>
 #paste the pub key in ssh github account
-
+GIT_SSH_COMMAND
 ```
