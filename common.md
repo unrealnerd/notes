@@ -504,7 +504,8 @@ dotnet dev-certs https --trust
 - internet gateway & private gateway to enter a VPC
 - SSM Agent-  is Amazon software that runs on ec2 instances to help manage resouces
 - Install docker in EC2 
-  ``sudo amazon-linux-extras install docker
+  ````
+  sudo amazon-linux-extras install docker
   sudo usermod -a -G docker ec2-user
 
 
