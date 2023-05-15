@@ -140,3 +140,6 @@ fi
 
 ## ssh setup on new server or git
 ```
+sudo yum install git
+
+```
