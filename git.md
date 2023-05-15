@@ -39,7 +39,7 @@
     IdentityFile ~/.ssh/id_ed25519
 ```
 
-anoher alternate way to use different ssh keys is GIT_SSH_COMMAND="ssh -i ~/.ssh/support-mod" git clone  --no-checkout <ssh repo url>
+anoher alternate way to use different ssh keys is ``
 
 - use it this way `git clone git@personal:<path>`
 
