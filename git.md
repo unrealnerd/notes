@@ -39,7 +39,7 @@
     IdentityFile ~/.ssh/id_ed25519
 ```
 
-anoher al
+anoher alternate way to use 
 
 - use it this way `git clone git@personal:<path>`
 
