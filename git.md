@@ -142,4 +142,5 @@ fi
 ```
 sudo yum install git
 ssh-keygen -t rsa -C "abc@xyz.com
+
 ```
