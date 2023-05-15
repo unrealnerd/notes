@@ -138,4 +138,4 @@ fi
 `git config credential.username unrealnerd`
 
 
-## ssh setup on new server or 
+## ssh setup on new server or git
