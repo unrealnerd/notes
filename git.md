@@ -39,7 +39,7 @@
     IdentityFile ~/.ssh/id_ed25519
 ```
 
-anoher alternate way to use 
+anoher alternate way to use different ssh keys
 
 - use it this way `git clone git@personal:<path>`
 
