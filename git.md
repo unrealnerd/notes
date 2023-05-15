@@ -141,5 +141,5 @@ fi
 ## ssh setup on new server or git
 ```
 sudo yum install git
-ssh-keygen -t rsa -C "xyz@.com
+ssh-keygen -t rsa -C "xyz@abc.com
 ```
