@@ -39,6 +39,8 @@
     IdentityFile ~/.ssh/id_ed25519
 ```
 
+anoher al
+
 - use it this way `git clone git@personal:<path>`
 
 ## Splitting a repository
