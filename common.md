@@ -516,7 +516,7 @@ dotnet dev-certs https --trust
         "logDriver": "awslogs",
         "options": {
             "awslogs-group": "/ecs/servicename",
-            "awslogs-region": "us-south-1",
+            "awslogs-region": "us-west-1",
             "awslogs-stream-prefix": "ecs"
         }
     }
