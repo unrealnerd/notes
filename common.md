@@ -522,7 +522,7 @@ dotnet dev-certs https --trust
     }
   ```
   - ECS Summary
-    - VPC 
+    - VPC is created 
     - Network load balancer points to a target group
     - 
 
