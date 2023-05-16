@@ -528,7 +528,7 @@ dotnet dev-certs https --trust
     - The service will hold the details like the vpc, loadbalancer, subet
     - this service will run task 
     - task dfinitaiton contains the container info 
-    - 
+    - logging is also enabled here using awslog driver
 
 
 #### READ REPLICA
