@@ -528,6 +528,7 @@ dotnet dev-certs https --trust
     - The service will hold the details like the vpc, loadbalancer, subet
     - this service will run task 
     - task dfinitaiton contains the container info 
+    - 
 
 
 #### READ REPLICA
