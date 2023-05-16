@@ -524,7 +524,8 @@ dotnet dev-certs https --trust
   - ECS Summary
     - VPC is created with couple of subnet
     - Network load balancer points to a target group
-    - Cluster is created inside of which 
+    - Cluster is created inside of which we create service
+    - 
 
 
 #### READ REPLICA
