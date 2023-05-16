@@ -513,13 +513,13 @@ dotnet dev-certs https --trust
 - to enable logging in ECS container
   ```
   "logConfiguration": {
-                "logDriver": "awslogs",
-                "options": {
-                    "awslogs-group": "/ecs/leadx-prod-cron",
-                    "awslogs-region": "ap-south-1",
-                    "awslogs-stream-prefix": "ecs"
-                }
-            }
+        "logDriver": "awslogs",
+        "options": {
+            "awslogs-group": "/ecs/leadx-prod-cron",
+            "awslogs-region": "ap-south-1",
+            "awslogs-stream-prefix": "ecs"
+        }
+    }
   ```
 
 
