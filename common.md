@@ -510,8 +510,7 @@ dotnet dev-certs https --trust
   ```
   ref:
   - https://medium.com/appgambit/part-1-running-docker-on-aws-ec2-cbcf0ec7c3f8
-
-  
+- 
 
 
 #### READ REPLICA
