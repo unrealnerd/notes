@@ -515,7 +515,7 @@ dotnet dev-certs https --trust
   "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-            "awslogs-group": "/ecs/leadx-prod-cron",
+            "awslogs-group": "/ecs/servicename",
             "awslogs-region": "ap-south-1",
             "awslogs-stream-prefix": "ecs"
         }
