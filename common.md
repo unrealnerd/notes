@@ -527,6 +527,7 @@ dotnet dev-certs https --trust
     - Cluster is created inside of which we create service
     - The service will hold the details like the vpc, loadbalancer, subet
     - this service will run task 
+    - tasks are di
 
 
 #### READ REPLICA
