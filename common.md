@@ -525,7 +525,8 @@ dotnet dev-certs https --trust
     - VPC is created with couple of subnet
     - Network load balancer points to a target group
     - Cluster is created inside of which we create service
-    - The service will hold the details like the vpc, loadbalancer
+    - The service will hold the details like the vpc, loadbalancer, subet
+    - 
 
 
 #### READ REPLICA
