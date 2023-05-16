@@ -526,7 +526,7 @@ dotnet dev-certs https --trust
     - Network load balancer points to a target group
     - Cluster is created inside of which we create service
     - The service will hold the details like the vpc, loadbalancer, subet
-    - this service will run 
+    - this service will run task 
 
 
 #### READ REPLICA
