@@ -574,5 +574,5 @@ dotnet dev-certs https --trust
 
 - common wrapper for unique function
   ```js
-  this.wrapper(this.jobsService.scheduleHrNotificationEmailsForLaunch.bind(this), projectsWithProjectStartDateWithinNext5Days);
+  this.commonWrap(this.jobsService.scheduleHrNotificationEmailsForLaunch.bind(this), projectsWithProjectStartDateWithinNext5Days);
   ```
