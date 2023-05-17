@@ -574,7 +574,7 @@ dotnet dev-certs https --trust
 
 - common wrapper for unique function
   ```js
-  this.commonWrap(this.uniqueFn.bind(this), params);
+  commonWrap(this.uniqueFn.bind(this), params);
 
   async commonWrap(fn, ...params) {
     for (let i = 0; i < 5; i++) {
