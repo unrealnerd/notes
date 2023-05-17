@@ -573,6 +573,6 @@ dotnet dev-certs https --trust
   ### javascript
 
 - common wrapper for unique function
-  ```
+  ```js
   this.populateSchedule(this.jobsService.scheduleHrNotificationEmailsForLaunch.bind(this), projectsWithProjectStartDateWithinNext5Days);
   ```
