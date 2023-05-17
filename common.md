@@ -576,5 +576,9 @@ dotnet dev-certs https --trust
   ```js
   this.commonWrap(this.uniqueFn.bind(this), params);
 
-  
+async populateSchedule(fn, ...params) {
+    for (let i = 0; i < 5; i++) {
+      fn(true, new Date(new Date().setDate(new Date().getDate() + i), ), ...params);
+    }
+  }
   ```
