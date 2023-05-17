@@ -572,4 +572,4 @@ dotnet dev-certs https --trust
 
   ### javascript
 
-- wrapping a common function 
+- wrapper for 
