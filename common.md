@@ -572,7 +572,7 @@ dotnet dev-certs https --trust
 
   ### javascript
 
-- Example for common wrapper for unique function
+- Example for common wrapper for unique function and binding this 
   ```js
   commonWrap(this.uniqueFn.bind(this), params);
 
