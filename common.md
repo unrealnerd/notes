@@ -569,7 +569,7 @@ dotnet dev-certs https --trust
   //referencing this ref
   ref1 = refs.current[0];
   ```
-- usestate adn set state does not reflect immidiately since its asynchronous
+- usestate adn set state does not reflect immediately since its asynchronous
   ### javascript
 
 - Example for common wrapper for unique function and binding this to a callback
