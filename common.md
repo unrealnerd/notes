@@ -571,7 +571,6 @@ dotnet dev-certs https --trust
   ```
 - usestate and set state does not reflect immediately since its asynchronous
   ```
-
   useEffect(() => {
     console.debug(selectedOption);
   }, [selectedOption]);
