@@ -569,7 +569,7 @@ dotnet dev-certs https --trust
   //referencing this ref
   ref1 = refs.current[0];
   ```
-
+- 
   ### javascript
 
 - Example for common wrapper for unique function and binding this to a callback
