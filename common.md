@@ -570,7 +570,7 @@ dotnet dev-certs https --trust
   ref1 = refs.current[0];
   ```
 - usestate and set state does not reflect immediately since its asynchronous
-  ````
+  ```
 ```
   ### javascript
 
