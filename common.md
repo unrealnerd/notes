@@ -570,6 +570,8 @@ dotnet dev-certs https --trust
   ref1 = refs.current[0];
   ```
 - usestate and set state does not reflect immediately since its asynchronous
+  ````
+```
   ### javascript
 
 - Example for common wrapper for unique function and binding this to a callback
