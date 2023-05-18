@@ -573,7 +573,7 @@ dotnet dev-certs https --trust
   ```
   useEffect(() => {
     console.debug(varname);
-  }, [selectedOption]);
+  }, [varname]);
   ```
   ### javascript
 
