@@ -590,4 +590,4 @@ dotnet dev-certs https --trust
 
   ### Postgres
   - when want custom json with selected column
-    
+    `json_agg(json_build_object('id', o."id", 'text', o."text"))`
