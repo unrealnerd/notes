@@ -157,5 +157,5 @@ GIT_SSH_COMMAND="ssh -i ~/.ssh/key" git clone  --no-checkout <ssh repo url>
     [remote "origin"]
 	url = https://eubricsArjun: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@github.com/Eubrics/leadx.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
-	pushurl = https://eubricsArjun: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@github.com/eubricsArjun/leadx.git
+	pushurl = https://unrealner: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@github.com/eubricsArjun/leadx.git
     ```
