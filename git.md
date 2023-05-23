@@ -157,5 +157,5 @@ GIT_SSH_COMMAND="ssh -i ~/.ssh/key" git clone  --no-checkout <ssh repo url>
     [remote "origin"]
 	url = https://unrealnerd:<token>/notes/notes.git
 	fetch = +refs/heads/*:refs/remotes/origin/*
-	pushurl = https://unrealnerd:<token>@github.com/unrealnerd/leadx.git
+	pushurl = https://unrealnerd:<token>@github.com/unrealnerd/notes.git
     ```
