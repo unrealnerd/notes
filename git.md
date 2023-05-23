@@ -152,7 +152,7 @@ GIT_SSH_COMMAND="ssh -i ~/.ssh/key" git clone  --no-checkout <ssh repo url>
 
 ### multiple access token for push and pull origin
 
-- update this in the project `.github\config` file 
+- update this in the project `.github/config` file 
     ```
     [remote "origin"]
 	url = https://unrealnerd:<token>/notes/notes.git
