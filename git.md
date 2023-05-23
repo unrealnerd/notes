@@ -149,3 +149,5 @@ cat <pub key>
 # paste the pub key in ssh github account
 GIT_SSH_COMMAND="ssh -i ~/.ssh/key" git clone  --no-checkout <ssh repo url>
 ```
+
+### m
