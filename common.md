@@ -594,6 +594,6 @@ dotnet dev-certs https --trust
   - converting from one type of enum array to another
     ```sql
     alter table <tablename> 
-    alter column "<columnname>" type learner_journey_desiredbehaviourlevel_enum[]
+    alter column "<columnname>" type <>[]
     USING "<columnname>"::<oldtype>[]::text[]::<newtype>[];
     ```
