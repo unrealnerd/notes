@@ -594,5 +594,6 @@ dotnet dev-certs https --trust
   - converting from one type of enum array to another
     ```
     alter table xreassessment_question 
-alter column "targetLevel" type learner_journey_desiredbehaviourlevel_enum[]
-USING "targetLevel"::behaviour_extended_props_with_level_level_enum[]::text[]::learner_journey_desiredbehaviourlevel_enum[];
+    alter column "targetLevel" type learner_journey_desiredbehaviourlevel_enum[]
+    USING "targetLevel"::behaviour_extended_props_with_level_level_enum[]::text[]::learner_journey_desiredbehaviourlevel_enum[];
+    ```
