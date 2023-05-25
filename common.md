@@ -592,4 +592,6 @@ dotnet dev-certs https --trust
   - when want custom json with selected column
     `json_agg(json_build_object('id', o."id", 'text', o."text"))`
   - converting from one type of enum array to another
-    ``
+    `alter table xreassessment_question 
+alter column "targetLevel" type learner_journey_desiredbehaviourlevel_enum[]
+USING "targetLevel"::behaviour_extended_props_with_level_level_enum[]::text[]::learner_journey_desiredbehaviourlevel_enum[];`
