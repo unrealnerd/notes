@@ -595,5 +595,5 @@ dotnet dev-certs https --trust
     ```sql
     alter table <tablename> 
     alter column "<columnname>" type learner_journey_desiredbehaviourlevel_enum[]
-    USING "<columnname>"::<oldtype>[]::text[]::learner_journey_desiredbehaviourlevel_enum[];
+    USING "<columnname>"::<oldtype>[]::text[]::<n>[];
     ```
