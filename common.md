@@ -595,5 +595,5 @@ dotnet dev-certs https --trust
     ```sql
     alter table <tablename> 
     alter column "<columnname>" type learner_journey_desiredbehaviourlevel_enum[]
-    USING "targetLevel"::behaviour_extended_props_with_level_level_enum[]::text[]::learner_journey_desiredbehaviourlevel_enum[];
+    USING "<columnname>"::behaviour_extended_props_with_level_level_enum[]::text[]::learner_journey_desiredbehaviourlevel_enum[];
     ```
