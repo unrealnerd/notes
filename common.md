@@ -602,6 +602,6 @@ dotnet dev-certs https --trust
     Insert into <tablename> ("id","col1","col2","col3")
     values((select nextval('<sequencename>'::regclass)),1, 2,3)
     on conflict ("col1","col2")
-    do update set "col1" = excluded."optionId";
+    do update set "col1" = excluded."col2";
 
     ```
