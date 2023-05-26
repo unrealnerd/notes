@@ -599,8 +599,8 @@ dotnet dev-certs https --trust
     ```
   - inserting to table with auto increment sequence
     ```
-    Insert into <tablename> ("id","col1","col2","co")
-    values((select nextval('<sequencename>'::regclass)),, 6,7)
+    Insert into <tablename> ("id","col1","col2","col3")
+    values((select nextval('<sequencename>'::regclass)),1, 6,7)
     on conflict ("userId","questionId")
     do update set "optionId" = excluded."optionId";
 
