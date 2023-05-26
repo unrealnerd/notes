@@ -597,7 +597,7 @@ dotnet dev-certs https --trust
     alter column "<columnname>" type <newtype>[]
     USING "<columnname>"::<oldtype>[]::text[]::<newtype>[];
     ```
-  - inserting to table with auto increment sequence
+  - inserting to table with auto increment sequence and 
     ```
     Insert into <tablename> ("id","col1","col2","col3")
     values((select nextval('<sequencename>'::regclass)),1, 2,3)
