@@ -597,4 +597,11 @@ dotnet dev-certs https --trust
     alter column "<columnname>" type <newtype>[]
     USING "<columnname>"::<oldtype>[]::text[]::<newtype>[];
     ```
-  - 
+    - inserting to table with auto increment sequence
+    ```
+    Insert into <tablename> ("id","userId","optionId","questionId")
+    values((select nextval('xreassessment_response_id_seq'::regclass)),(select "id" from "user" u where u."publicUserUuid" = 'dbac8ab3-7ed4-4f97-89a4-865b01bbe969'), 6,7)
+    on conflict ("userId","questionId")
+    do update set "optionId" = excluded."optionId";
+
+    ```
