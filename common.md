@@ -608,7 +608,7 @@ dotnet dev-certs https --trust
   - dynamic conditional column based on column value
     ```
     SELECT CASE
-        WHEN u.category LIKE '%ADMIN%' THEN 'TRUE'
+        WHEN u.role LIKE '%ADMIN%' THEN 'TRUE'
         ELSE 'FALSE'
     END AS "isManager"
     FROM "user" u 
