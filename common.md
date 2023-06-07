@@ -610,6 +610,6 @@ dotnet dev-certs https --trust
     SELECT CASE
         WHEN u.role LIKE '%ADMIN%' THEN 'TRUE'
         ELSE 'FALSE'
-    END AS "isManager"
+    END AS "isAdmin"
     FROM "user" u 
     ```
