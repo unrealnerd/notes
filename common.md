@@ -605,4 +605,4 @@ dotnet dev-certs https --trust
     do update set "col1" = excluded."col2";
 
     ```
-  - dynamic column based on column value
+  - dynamic conditional column based on column value
