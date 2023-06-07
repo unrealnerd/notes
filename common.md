@@ -611,5 +611,5 @@ dotnet dev-certs https --trust
         WHEN u.category LIKE '%MANAGER%' THEN 'TRUE'
         ELSE 'FALSE'
     END AS "isManager"
-from "user" u 
+    from "user" u 
     ```
