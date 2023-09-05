@@ -23,10 +23,12 @@
 |Undo a file in a commit|`git checkout <COMMIT SHA>~1 -- filepath`<br/> OR<br/>`git checkout HEAD^ /path/to/file`<br/>`git commit --amend`<br/>`git push -f`
 |when gitignore is not working as expected|`git rm -r --cached .`
 |generating ssh|`ssh-keygen -t rsa -b 4096 -C "arjunshetty2020@gmail.com"`<br/> copy pub key to github from `C:\Users\arjun_shetty\.ssh\id_rsa.pub`
-|Deleting a remote branch|git push origin --delete test
-|get one file form a stash|git checkout stash@{0} README.md
+|Deleting a remote branch|`git push origin --delete test`
+|get one file form a stash|`git checkout stash@{0} README.md`
+|display remote link to branches|`git remote -vv`
 |reset to specific branch in origin|`git reset --hard origin/main`
 |when branch is not the same|`git push origin-1 HEAD:main_prod`
+|to checkout and track a branch from multiple remote|`git checkout -b --track old/staging_changes_merge`
 
 ## hold multiple ssh keys
 
@@ -56,7 +58,7 @@ anoher alternate way to use different ssh keys is `GIT_SSH_COMMAND="ssh -i ~/.ss
 ## Creating a new repository from the old without the history and selectively getting specific branches from old
 
 - `git clone https://github.com/unrealnerd/myoldrepo.git`
-- make another copy of the folder 
+- make another copy of the folder
 - `git remote add neworigin https://github.com/unrealnerd/mynewsrepo.git`
 - `git checkout branch1`
 - `git checkout --orphan orphbranch1`

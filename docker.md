@@ -23,6 +23,8 @@
 - Creating a docker image
 
    `docker build -t <projname> .`
+    - buling docker from a custom dockerfilename
+   `docker build -f MyDockerfile .`
    - list docker images `docker image ls`
 
 - Saving and laoding container image
